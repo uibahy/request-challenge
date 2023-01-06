@@ -14,8 +14,8 @@ function userIdFilter(userId){
                 </div>
                 `
             }
-            // console.log(response)
-            // console.log(`the status code is ${request.status}`)
+            console.log(response)
+            console.log(`the status code is ${request.status}`)
         } else {
             console.log(`error ${request.status}`)
         }
