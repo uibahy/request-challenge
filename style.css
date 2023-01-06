@@ -20,6 +20,7 @@ body{
     padding: 0px;
     gap: 16px;
     width: 30%;
+    height: 100%;
 }
 .user{
     box-sizing: border-box;
