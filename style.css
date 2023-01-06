@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+* {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 24px;
+
+    background: #12131A;
+}
+
+.users{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    width: 30%;
+}
+
+.user{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px;
+    gap: 4px;
+
+    background: #171821;
+    border: 1px solid #3A3D4D;
+    border-radius: 4px;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.user:hover{
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #696C80;
+}
+
+.user::after{
+    background-color: red;
+}
+
+.user h2{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    width: 100%;
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.user p{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #9A9EB3;
+}
+
+.posts{
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 16px;
+    width: 70%;
+    background: #171821;
+    
+    border: 1px solid #3A3D4D;
+    border-radius: 4px;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px;
+    gap: 4px;
+
+    width: fit-content;
+
+    background: #1C1D26;
+    border-radius: 4px;
+}
+
+.post h2{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    
+    color: #FFFFFF;
+}
+
+.post p{
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #9A9EB3;
+}
