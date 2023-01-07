@@ -22,7 +22,6 @@ function userIdFilter(userId){
     }
     document.getElementById("posts").innerHTML = ``
 }
-
 function getAllUsers(){
     let request = new XMLHttpRequest()
     request.open("GET", "https://jsonplaceholder.typicode.com/users")
