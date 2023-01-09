@@ -45,41 +45,62 @@
 // }
 // getAllUsers()
 
-function getAllUsers(){
-    return new Promise((resolve, reject) => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => { 
-            let users = response.json()
-            if (response.status >= 200 && response.status < 300){
-                return users
-            } else {
-                reject(`error ${response.status}`)
-            }
-        })
-        .then((users) => {
-            for(user of users){
-                document.getElementById("users").innerHTML += `
-                <div id="users" onclick="userIdFilter(${user.id})" class="user">
-                <h2>${user.name}</h2>
-                <p>${user.email}</p>
-                </div>
-                `        
-            }
-        })
-        resolve()
-    })
-}
+// function getAllUsers(){
+//     return new Promise((resolve, reject) => {
+//         fetch('https://jsonplaceholder.typicode.com/users')
+//         .then(response => { 
+//             let users = response.json()
+//             if (response.status >= 200 && response.status < 300){
+//                 return users
+//             } else {
+//                 reject(`error ${response.status}`)
+//             }
+//         })
+//         .then((users) => {
+//             for(user of users){
+//                 document.getElementById("users").innerHTML += `
+//                 <div id="users" onclick="userIdFilter(${user.id})" class="user">
+//                 <h2>${user.name}</h2>
+//                 <p>${user.email}</p>
+//                 </div>
+//                 `        
+//             }
+//         })
+//         resolve()
+//     })
+// }
+// function userIdFilter(userId){
+//     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+//     .then((response) => {
+//         let posts = response.json()
+//         if (response.status >= 200 && response.status < 300){
+//             return posts 
+//         } else {
+//             console.log(`error ${response.status}`)
+//         }
+//     })
+//     .then((posts) => {
+//         document.getElementById("posts").innerHTML = ""
+//         for (post of posts){
+//             document.getElementById("posts").innerHTML += `
+//             <div class="post">
+//             <h2>${post.title}</h2>
+//             <p>${post.body}</p>
+//             </div>
+//             `
+//         }
+//     });
+// }
+
+// getAllUsers()
+// .then(() => {
+//     userIdFilter(1)
+// }) 
+
 function userIdFilter(userId){
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
     .then((response) => {
-        let posts = response.json()
-        if (response.status >= 200 && response.status < 300){
-            return posts 
-        } else {
-            console.log(`error ${response.status}`)
-        }
-    })
-    .then((posts) => {
+        let posts = response.data
         document.getElementById("posts").innerHTML = ""
         for (post of posts){
             document.getElementById("posts").innerHTML += `
@@ -89,14 +110,35 @@ function userIdFilter(userId){
             </div>
             `
         }
-    });
+    })
 }
 
-getAllUsers()
-.then(() => {
-    userIdFilter(1)
-})
-
+function getAllUsersAxios(){
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(function (response) {
+        let users = response.data
+            for(user of users){
+                document.getElementById("users").innerHTML += `
+                <div id="users" onclick="userIdFilter(${user.id})" class="user">
+                <h2>${user.name}</h2>
+                <p>${user.email}</p>
+                </div>
+                `        
+            }
+    })
+    .catch(function (error) {
+        document.getElementById("users").innerHTML += `
+        <div id="users" onclick="userIdFilter()" class="user">
+        <h2>Error</h2>
+        <p>${error.response.status}</p>
+        </div>
+        `                
+        console.log(error.response.status);
+    })
+    .then(function () {
+    });
+}
+getAllUsersAxios()
 // new Promise((resolve) => {
 //     document.getElementById("users").style
 // })
