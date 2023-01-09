@@ -1,5 +1,5 @@
 function userIdFilter(userId){
-    axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    axios.get(`https://jsonplaceholder.typicode.com/posts123213`)
     .then((response) => {
         let posts = response.data
         document.getElementById("posts").innerHTML = ""
@@ -12,7 +12,16 @@ function userIdFilter(userId){
             `
         }
     })
+    .catch((error) => {
+        document.getElementById("posts").innerHTML += `
+        <div class="post">
+        <h2>Error</h2>
+        <p>${error.response.status}</p>
+        </div>
+        `
+    })
 }
+userIdFilter(1)
 
 function getAllUsersAxios(){
     axios.get('https://jsonplaceholder.typicode.com/users')
